@@ -11,7 +11,7 @@ def print_report(filepath):
     letter_counts = {char: count for char, count in char_count.items() if char.isalpha()}
     sorted_letters = sorted(letter_counts.keys())
     print(f"--- Begin report of {filepath} ---")
-    print(f"{num_words} words found in the document")
+    print(f"Found {num_words} total words")
     print("\nEach letter was found the following number of times:")
     for letter in sorted_letters:
         print(f"{letter}: {letter_counts[letter]}")
