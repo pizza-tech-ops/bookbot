@@ -1,7 +1,7 @@
 from stats import count_words, count_characters
 
 def get_book_text(filepath):
-    with open(filepath) as f:
+    with open(filepath, encoding="utf-8") as f:
         return f.read()
 
 def main():

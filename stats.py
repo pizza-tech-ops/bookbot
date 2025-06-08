@@ -4,8 +4,5 @@ def count_words(text):
 def count_characters(text):
     char_counts = {}
     for char in text.lower():
-        if char in char_counts:
-            char_counts[char] += 1
-        else:
-            char_counts[char] = 1
+        char_counts[char] = char_counts.get(char, 0) + 1
     return char_counts
