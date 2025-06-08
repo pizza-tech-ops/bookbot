@@ -4,12 +4,21 @@ def get_book_text(filepath):
     with open(filepath, encoding="utf-8") as f:
         return f.read()
 
-def main():
-    book_text = get_book_text("books/frankenstein.txt")
+def print_report(filepath):
+    book_text = get_book_text(filepath)
     num_words = count_words(book_text)
-    char_counts = count_characters(book_text)
+    char_count = count_characters(book_text)
+    letter_counts = {char: count for char, count in char_count.items() if char.isalpha()}
+    sorted_letters = sorted(letter_counts.keys())
+    print(f"--- Begin report of {filepath} ---")
     print(f"{num_words} words found in the document")
-    print(char_counts)
+    print("\nEach letter was found the following number of times:")
+    for letter in sorted_letters:
+        print(f"{letter}: {letter_counts[letter]}")
+    print("--- End report ---")
+
+def main():
+    print_report("books/frankenstein.txt")
 
 if __name__ == "__main__":
     main()
